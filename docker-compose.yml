@@ -1,0 +1,21 @@
+version: "3"
+services:
+  db:
+    container_name: ${PROJECT_NAME}_db
+    image: postgres:${POSTGRES_VERSION}
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - db:/var/lib/postgresql/data/pgdata
+    restart: always
+    networks:
+      - postgres_bd
+    ports:
+      - ${DB_PORT}:5432
+networks:
+  postgres_bd:
+volumes:
+  db:
