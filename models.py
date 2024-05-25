@@ -14,3 +14,4 @@ def init_db():
     from app.models.sys import SysUsers
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
+    session.commit()
