@@ -12,7 +12,5 @@ class SysUsers(Base):
     is_admin: Mapped[bool] = mapped_column(Boolean)
 
     def __repr__(self) -> str:
-        return f"User(id={self.id!r}, name={self.name!r})"
-    
-class SysAccessView(Base):
-    __tablename__ = "sys_access_view"
+        res = f"User(id={self.id!r}, name={self.name!r}, email={self.email!r}, password={self.password!r}, is_admin={self.is_admin!r})"
+        return res
